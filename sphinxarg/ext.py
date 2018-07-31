@@ -167,7 +167,8 @@ def print_subcommands(data, nested_content, markDownHelp=False, settings=None):
         subCommands = nodes.section(ids=["Sub-commands:"])
         subCommands += nodes.title('Sub-commands:', 'Sub-commands:')
 
-        for child in data['children']:
+        sorted_children = sorted(data['children'], key=lambda k: k['name']) 
+        for child in sorted_children:
             sec = nodes.section(ids=[child['name']])
             sec += nodes.title(child['name'], child['name'])
 
